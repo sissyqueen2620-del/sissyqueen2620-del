@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Transformation Journey</title>
+    <!-- FontAwesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        /* Base Dark and Red Theme Styling */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0d0d0d; color: #ffffff; line-height: 1.6; }
+        a { color: #ff3333; text-decoration: none; }
+        
+        /* Header & Navigation Panel */
+        header { background-color: #1a1a1a; border-bottom: 2px solid #ff0000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 24px; font-weight: bold; color: #ff0000; letter-spacing: 1px; }
+        nav { display: flex; gap: 20px; align-items: center; }
+        nav a { font-weight: 600; color: #ffffff; transition: color 0.3s; }
+        nav a:hover { color: #ff3333; }
+        
+        /* Search Button & Bar */
+        .search-container { display: flex; align-items: center; background: #262626; border: 1px solid #404040; border-radius: 4px; padding: 5px 10px; }
+        .search-container input { background: none; border: none; color: white; outline: none; padding: 5px; width: 140px; font-size: 14px; }
+        .search-btn { background: none; border: none; color: #ff3333; cursor: pointer; font-size: 16px; }
+
+        /* Main Container */
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        h2 { font-size: 32px; color: #ff0000; margin-bottom: 20px; border-left: 5px solid #ff0000; padding-left: 15px; text-transform: uppercase; }
+
+        /* About Section */
+        .about-content { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text p { margin-bottom: 15px; color: #cccccc; font-size: 18px; }
+        
+        /* Gallery Grid */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .gallery-card { background-color: #1a1a1a; border-radius: 8px; overflow: hidden; border: 1px solid #262626; transition: transform 0.3s, border-color 0.3s; }
+        .gallery-card:hover { transform: translateY(-5px); border-color: #ff3333; }
+        .gallery-img { width: 100%; height: 350px; object-fit: cover; display: block; }
+        
+        /* Interaction Panel (Like, Comment, Share) */
+        .interaction-panel { padding: 15px; border-top: 1px solid #262626; }
+        .action-buttons { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .action-btn { background: none; border: none; color: #cccccc; cursor: pointer; font-size: 16px; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+        .action-btn:hover, .action-btn.liked { color: #ff3333; }
+        
+        /* Social Share Flyout */
+        .share-options { display: flex; gap: 12px; background: #262626; padding: 10px; border-radius: 6px; margin-top: 10px; justify-content: center; }
+        .share-icon { font-size: 20px; transition: transform 0.2s; }
+        .share-icon:hover { transform: scale(1.2); }
+        .fa-snapchat { color: #FFFC00; }
+        .fa-instagram { color: #E1306C; }
+        .fa-facebook { color: #1877F2; }
+        .fa-x-twitter { color: #ffffff; }
+
+        /* Inline Comments Section */
+        .comment-section { margin-top: 10px; padding-top: 10px; border-top: 1px dashed #333; }
+        .comment-list { max-height: 100px; overflow-y: auto; margin-bottom: 10px; font-size: 14px; color: #aaa; }
+        .comment-input-box { display: flex; gap: 8px; }
+        .comment-input-box input { flex: 1; background: #111; border: 1px solid #333; padding: 6px; color: white; border-radius: 4px; }
+        .comment-input-box button { background: #ff0000; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+
+        /* Contact & Sponsor Form */
+        .contact-box { background-color: #1a1a1a; padding: 30px; border-radius: 8px; border: 1px solid #262626; max-width: 600px; margin: 0 auto; }
+        .sponsor-pitch { background: linear-gradient(45deg, #260000, #1a1a1a); border-left: 4px solid #ff0000; padding: 15px; margin-bottom: 25px; border-radius: 0 4px 4px 0; }
+        .sponsor-pitch h3 { color: #ff3333; margin-bottom: 5px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #cccccc; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; background-color: #0d0d0d; border: 1px solid #404040; color: #ffffff; border-radius: 4px; outline: none; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #ff0000; }
+        .submit-btn { width: 100%; background-color: #ff0000; color: #ffffff; border: none; padding: 14px; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.3s; }
+        .submit-btn:hover { background-color: #cc0000; }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            nav { flex-wrap: wrap; justify-content: center; }
+            .about-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Panel -->
+    <header>
+        <div class="logo">TRANSFORMATION</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Home / About Us Section -->
+        <section id="home">
+            <h2>About My Journey</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to my private tracking portal. This website serves as a dedicated, secure timeline documenting my personal physical and mental transformation.</p>
+                    <p>By keeping this space independent, I am able to log raw, authentic updates away from standard algorithm feeds, sharing access exclusively via a direct link to those supporting the mission.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>Progress Gallery</h2>
+            <div class="gallery-grid">
+                
+                <!-- START OF IMAGE CARD -->
+                <!-- To add a new photo, copy from here to END OF IMAGE CARD, paste it right below, and change the image URL -->
+                <div class="gallery-card">
+                    <img src="https://unsplash.com" alt="Day 1 Progress" class="gallery-img">
+                    <div class="interaction-panel">
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="toggleLike(this)"><i class="far fa-heart"></i> Like</button>
+                            <button class="action-btn" onclick="toggleComments(this)"><i class="far fa-comment"></i> Comment</button>
+                        </div>
+                        
+                        <!-- Social Media Sharing Menu -->
+                        <div class="share-options">
+                            <a href="https://snapchat.com" target="_blank" class="share-icon"><i class="fab fa-snapchat"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="share-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank" class="share-icon"><i class="fab fa-facebook"></i></a>
+                            <a href="https://x.com" target="_blank" class="share-icon"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+
+                        <!-- Comments Sub-Panel -->
+                        <div class="comment-section">
+                            <div class="comment-list"></div>
+                            <div class="comment-input-box">
+                                <input type="text" placeholder="Add a comment...">
+                                <button onclick="addComment(this)">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF IMAGE CARD -->
+
+            </div>
+        </section>
+
+        <!-- Contact & Sponsorship Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-box">
+                <div class="sponsor-pitch">
+                    <h3>Sponsor My Journey</h3>
+                    <p>Write us if you want to sponsor my transformation journey. Let's partner up to break boundaries and hit the next fitness milestones together.</p>
+                </div>
+                <!-- Using Formspree (Free) to safely route emails straight to your inbox without coding a backend -->
+                <form action="https://formspree.io" method="POST">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+Email Address
+Message / Sponsorship Details
+Send Message
+
+
+
+function toggleLike(btn) {
+const icon = btn.querySelector('i');
+if (icon.classList.contains('far')) {
+icon.className = 'fas fa-heart';
+btn.style.color = '#ff3333';
+} else {
+icon.className = 'far fa-heart';
+btn.style.color = '#cccccc';
+}
+}
+function toggleComments(btn) {
+const section = btn.closest('.interaction-panel').querySelector('.comment-section');
+section.style.display = section.style.display === 'none' || section.style.display === '' ? 'block' : 'none';
+}
+function addComment(btn) {
+const input = btn.previousElementSibling;
+if (input.value.trim() !== "") {
+const list = btn.closest('.comment-section').querySelector('.comment-list');
+const newComment = document.createElement('p');
+newComment.innerHTML = <strong>Viewer:</strong> ${input.value};
+list.appendChild(newComment);
+input.value = "";
+}
+}
